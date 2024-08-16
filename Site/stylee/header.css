@@ -1,0 +1,65 @@
+:root{
+    --cor-de-logo: rgb(51, 47, 47);
+}
+
+.navegador{
+    background-color: var(--cor-de-logo);
+    height: 80px;
+    width: 100%;
+    display: flex;
+    position: fixed;
+    justify-content: space-around;
+    align-items: center;
+}
+
+a{
+    position: relative;
+    color: white;
+    text-decoration: none; 
+    padding: 30px;
+    top: 30%;
+    /* left: 50vw; */
+}
+
+a:hover{
+    color: rgb(187, 187, 187);
+}
+
+li{
+    display: inline;
+}
+
+main {
+    position: relative;
+    /* top: calc(50vh - 200px); */
+    top: 100px;
+}
+.container{
+    display: flex;
+    gap: 40px;
+    /* queria colocar as tres fotos no centro */
+    /* eu preciso ficar definindo o tamnho do container pra isso? É correto? */
+    /* quero acabar com a barra de rolagem mas nao consigo */
+    /* o container ocupe tudo */
+    /* pq quando eu coloco ""height: 100vh" o container fica menos da metade dam tela? Não deveria ocupar a tela toda? */
+    /* height: 90px; */
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.logo{
+    width: 170px;
+    height: 170px;
+}
+
+.sociais{
+    font-size: 30px;
+    padding-bottom: 7px;
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    box-shadow: black;
+}

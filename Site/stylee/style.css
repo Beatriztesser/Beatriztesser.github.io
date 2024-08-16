@@ -1,0 +1,14 @@
+
+.fotobabi{
+    width: 400px;
+    height: 400px;
+    border: 7px solid black;
+}
+
+body{
+    background-color: rgba(121, 165, 110, 0.568);
+}
+
+.titulo{
+    font-size: 30px;
+}
