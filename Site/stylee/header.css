@@ -12,7 +12,7 @@
     align-items: center;
 }
 
-a{
+.links_header{
     position: relative;
     color: white;
     text-decoration: none; 
@@ -21,7 +21,7 @@ a{
     /* left: 50vw; */
 }
 
-a:hover{
+.links_header:hover{
     color: rgb(187, 187, 187);
 }
 
@@ -32,7 +32,7 @@ li{
 main {
     position: relative;
     /* top: calc(50vh - 200px); */
-    top: 100px;
+    top: 130px;
 }
 .container{
     display: flex;
