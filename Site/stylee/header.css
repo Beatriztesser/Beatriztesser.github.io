@@ -10,6 +10,7 @@
     position: fixed;
     justify-content: space-around;
     align-items: center;
+    z-index: 1;
 }
 
 .links_header{
@@ -32,7 +33,7 @@ li{
 main {
     position: relative;
     /* top: calc(50vh - 200px); */
-    top: 130px;
+    top: 220px;
 }
 .container{
     display: flex;
