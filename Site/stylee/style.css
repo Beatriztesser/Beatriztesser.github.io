@@ -11,10 +11,22 @@
 body{
     background-color: rgba(121, 165, 110, 0.568);
 }
+ .section1{
+    position: relative;
+    padding: 20px;
 
+}
 .titulo{
+    position: relative;
+    top: 100px;
     font-size: 30px;
 }
+
 .paragrafo{
+    position: relative;
+    top: 120px;
+    padding-top: 10px;
+    font-size: 20px;
+    width: 50%;
     
 }

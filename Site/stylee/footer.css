@@ -1,0 +1,13 @@
+.informacoes{
+    display: flex;
+    padding: 100px;
+}
+.info1, .info2, .info3{
+    padding: 30px;
+    font-family: "Poppins", sans-serif;
+    /* .poppins-thin {
+        font-family: "Poppins", sans-serif;
+        font-weight: 100;
+        font-style: normal;
+      }; */
+}
