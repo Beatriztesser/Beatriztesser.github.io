@@ -25,6 +25,13 @@
     /* left: 50vw; */
 }
 
+.links_header:hover{
+    color: rgb(187, 187, 187);
+    
+}
+.instagram:hover{
+    color: rgb(187, 187, 187);
+}
 .instagram{
     position: relative;
     color: white;
@@ -33,30 +40,13 @@
     font-size: 40px;
 }
 
-.links_header:hover{
-    color: rgb(187, 187, 187);
-}
 
 li{
     display: inline;
 }
 
-.container{
-    display: flex;
-    gap: 40px;
-    /* queria colocar as tres fotos no centro */
-    /* eu preciso ficar definindo o tamnho do container pra isso? É correto? */
-    /* quero acabar com a barra de rolagem mas nao consigo */
-    /* o container ocupe tudo */
-    /* pq quando eu coloco ""height: 100vh" o container fica menos da metade dam tela? Não deveria ocupar a tela toda? */
-    /* height: 90px; */
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    position: relative;
-    /* top: calc(50vh - 200px); */
-    top: 220px;
-}
+
+
 
 .logo{
     width: 170px;
