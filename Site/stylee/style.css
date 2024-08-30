@@ -1,4 +1,3 @@
-
 .fotobabi{
     min-height: 280px ;
     min-width: 280px;
@@ -6,7 +5,14 @@
     width: 80vw;
     height: 300px;
     border-radius: 10px;
+}
 
+main {
+    padding: 20px;
+    /* margin-bottom: 300px; */
+    min-height: 60vh;
+    margin-top: 80px;
+    min-height: calc(100vh - 80px - 190px -40px);
 }
 
 .fotobabi:hover {
@@ -14,20 +20,16 @@
     transition: transform 0.3s;
 }
 .container{
+    min-height: calc(100vh - 80px - 190px - 40px);
     display: flex;
     gap: 40px;
-    /* queria colocar as tres fotos no centro */
-    /* eu preciso ficar definindo o tamnho do container pra isso? É correto? */
-    /* quero acabar com a barra de rolagem mas nao consigo */
-    /* o container ocupe tudo */
-    /* pq quando eu coloco ""height: 100vh" o container fica menos da metade dam tela? Não deveria ocupar a tela toda? */
-    /* height: 90px; */
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    position: relative;
+    /* position: relative; */
     /* top: calc(50vh - 200px); */
-    top: 280px;
+    /* top: 280px; */
+    /* margin-top: 280px; */
 }
 
 body{
@@ -35,8 +37,8 @@ body{
 }
  .section1{
     position: relative;
-    top: 120px;
-    margin-left: 30px;
+    margin: 20px;
+    margin-top: 20px;
     margin-bottom: 60px;
 
 }
@@ -50,7 +52,7 @@ body{
 .paragrafo{
     position: relative;
     font-size: 25px;
-    width: 50%;
+    /* width: 70%; */
     margin-bottom: 25px;
     
 }
@@ -75,3 +77,20 @@ body{
     width: min-content;
 }
 
+.foto_hist{
+    height: 800px;
+    width: auto;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    margin-right: 30px;
+
+}
+
+
+.container-direito {
+    width: 30%;
+}
+.container-texto-foto {
+    display: flex;
+}
