@@ -4,7 +4,7 @@
 
 .navegador{
     background-color: var(--cor-de-logo);
-    height: 80px;
+    height: 101px;
     width: 100%;
     display: flex;
     position: fixed;
@@ -22,7 +22,7 @@
     top: 30%;
     font-family: "Poppins", sans-serif;
     font-weight: 600;
-    font-size: 17px;
+    font-size: 20px;
     /* left: 50vw; */
 }
 
