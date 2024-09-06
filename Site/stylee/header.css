@@ -4,7 +4,7 @@
 
 .navegador{
     background-color: var(--cor-de-logo);
-    height: 101px;
+    height:  80px;
     width: 100%;
     display: flex;
     position: fixed;
@@ -40,22 +40,10 @@
     padding: 30px;
     font-size: 40px;
 }
-/* .sociais{
-    font-size: 30px;
-    padding-bottom: 7px;
-    width: 40px;
-    height: 40px;
-    border-radius: 8px;
-    border: none;
-    cursor: pointer;
-    box-shadow: black;
-} */
 
 li{
     display: inline;
 }
-
-
 
 
 .logo{

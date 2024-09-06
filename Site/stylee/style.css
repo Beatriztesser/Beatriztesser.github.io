@@ -1,9 +1,9 @@
 .fotobabi{
     min-height: 280px ;
     min-width: 280px;
-    max-width: 430px;
+    max-width: 360px;
     width: 80vw;
-    height: 400px;
+    height: 320px;
     border-radius: 10px;
 }
 
@@ -11,8 +11,8 @@ main {
     padding: 20px;
     /* margin-bottom: 300px; */
     min-height: 60vh;
-    margin-top: 101px;
-    min-height: calc(100vh - 101px - 190px -40px);
+    margin-top: 80px;
+    min-height: calc(100vh - 80px - 190px -40px);
 }
 
 .fotobabi:hover {
@@ -20,13 +20,14 @@ main {
     transition: transform 0.3s;
 }
 .container{
-    min-height: calc(100vh - 101px - 190px - 40px);
+    min-height: calc(100vh - 80px - 190px - 40px);
+    /* o 1oovh é do */
+    /* o 80px é do */
     display: flex;
     gap: 40px;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-
 }
 
 body{
@@ -37,6 +38,7 @@ body{
     margin: 20px;
     margin-top: 20px;
     margin-bottom: 60px;
+
 
 }
 
@@ -67,7 +69,7 @@ body{
 .links_main p{
     font-family: "Poppins", sans-serif;
     font-weight: 850;
-    font-size: 17px;
+    font-size: 14px;
     text-decoration: none;
     color: rgb(9, 9, 129);
     text-align: justify;
@@ -91,18 +93,18 @@ body{
 
 }
 
-
 .container-direito {
     width: 30%;
 }
 .container-texto-foto {
     display: flex;
 }
-.tipos_gr{
-    display: flex;
 
-}
 .f{
-    display: flex;
-    min
+    min-width: 320px;
+    max-width: 360px;
+    width: 80vw;
+    /* height: 320px; */
+    border-radius: 15px;
+
 }
