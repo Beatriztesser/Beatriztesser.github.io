@@ -75,7 +75,6 @@ body{
 .paragrafo{
     position: relative;
     font-size: 25px;
-    /* width: 70%; */
     margin-bottom: 25px;
     text-align: justify;
     
@@ -86,41 +85,29 @@ body{
     width: min-content;
 }
 
-/* .foto_hist{
-    height: 800px;
-    width: auto;
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    margin-right: 30px;
 
-} */
-
-/* .container-direito {
-    width: 30%;
+.conteudo_filho{
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    max-width: 1200px;
 }
-.container-texto-foto {
-    display: flex;
-} */
 
-.bloco{
-    margin-left: 15%;
-    margin-right: 15%;
-    width: 70%;
-    min-width: 100px;
-    border-left: 1px solid;
-    border-right: 1px solid black;
-    padding: 20px;
-    line-height: 22px;
-    margin-bottom: 20px;
+.conteudo_neto{
+    font-family: Open Sans, "Source Serif Pro", serif;
+    margin-left: 1px;
+    margin-top: 20px;
+    margin-bottom: 10px; 
+    color: #000000;
+    font-size: 30%;
+    line-height: 28px;
+
 }
+
+
 .f{
-
-    margin-top: 5px;
-    margin-bottom: 5px;
-    padding: 15px;
-    text-indent: 15px;
-    text-align: justify;
-
+    width: 80%;
+    border: 1px solid black;
+    border-radius: 6px;
 
 }
