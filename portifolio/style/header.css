@@ -1,0 +1,39 @@
+:root{
+    --cor-de-logo: rgb(51, 47, 47);
+}
+
+.navegador{
+
+    background-color: var(--cor-de-logo);
+    height:  80px;
+    width: 100%;
+    display: flex;
+    position: fixed;
+    top: 0;
+    justify-content: center; 
+    align-items: center;
+    z-index: 1;
+    
+}
+
+.links_header{
+    position: relative;
+    color: white;
+    text-decoration: none; 
+    padding: 30px;
+    top: 30%;
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+    /* left: 50vw; */
+}
+
+.links_header:hover{
+    color: rgb(187, 187, 187);
+}
+
+
+.list_header{
+    display: inline;
+}
+
