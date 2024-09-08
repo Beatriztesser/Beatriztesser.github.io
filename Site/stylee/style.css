@@ -29,6 +29,21 @@ main {
     align-items: center;
     flex-wrap: wrap;
 }
+.links_main{
+    text-decoration: none;
+}
+.links_main p{
+    font-family: "Poppins", sans-serif;
+    font-weight: 850;
+    font-size: 14px;
+    text-decoration: none;
+    color: rgb(9, 9, 129);
+    text-align: justify;
+    padding-top: 7px;
+    padding-left: 15px;
+    padding-right: 15px;
+
+}
 
 body{
     background-color: rgba(121, 165, 110, 0.568);
@@ -63,27 +78,13 @@ body{
     margin-bottom: 25px;
     
 }
-.links_main{
-    text-decoration: none;
-}
-.links_main p{
-    font-family: "Poppins", sans-serif;
-    font-weight: 850;
-    font-size: 14px;
-    text-decoration: none;
-    color: rgb(9, 9, 129);
-    text-align: justify;
-    padding-top: 7px;
-    padding-left: 15px;
-    padding-right: 15px;
 
-}
 
 .figura_container {
     width: min-content;
 }
 
-.foto_hist{
+/* .foto_hist{
     height: 800px;
     width: auto;
     border-radius: 10px;
@@ -91,17 +92,17 @@ body{
     align-items: center;
     margin-right: 30px;
 
-}
+} */
 
-.container-direito {
+/* .container-direito {
     width: 30%;
 }
 .container-texto-foto {
     display: flex;
-}
+} */
 
 .f{
-    min-width: 320px;
+    min-width: 350px;
     max-width: 360px;
     width: 80vw;
     /* height: 320px; */
