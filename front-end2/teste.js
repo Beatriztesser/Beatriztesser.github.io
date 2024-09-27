@@ -16,6 +16,7 @@
 // body.appendChild(ancora)
 
 const body= document.querySelector('body')
+
 const lista= document.createElement('ul')
 const item1= documento.createElement('li')
 const item2= documento.createElement('li')
