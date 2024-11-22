@@ -22,7 +22,7 @@ export default function State(){
         <div>
             {/* <p>{conteudo}</p>
             <button onClick={controlarParagrafo}>mudar</button> */}
-            <button> onClick={()=>{setShowDiv(!showDiv) }}> {showDiv?'Esconder': 'mostrar'}</button>
+            <button> onClick={()=>{setShowDiv(!showDiv) }} {showDiv?'Esconder': 'mostrar'}</button>
             {showDiv &&
                 (
                     <div> 
