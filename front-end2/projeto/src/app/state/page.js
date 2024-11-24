@@ -4,7 +4,7 @@ import {useState} from 'react';
 export default function State(){
     // let conteudo= "Bom dia"
     const[conteudo, setConteudo]= useState('Bom dia')
-    const[name, setName]=useState('')
+const[name, setName]=useState('')
 
     const[showDiv, setShowDiv]= useState(true)
 
