@@ -5,11 +5,11 @@ import { useState } from "react";
 
 
 export default function Home() {
-  const [msg, setMsg] = useState('oi');
+  // const [msg, setMsg] = useState('oi');
   return (
     <div className={styles.page}>
-      <p>{msg}</p>
-      <button onClick={()=>setMsg('novo')}>Clique</button>
+      {/* <p>{msg}</p>
+      <button onClick={()=>setMsg('novo')}>Clique</button> */}
       <main className={styles.main}>
         <Image
           className={styles.logo}
