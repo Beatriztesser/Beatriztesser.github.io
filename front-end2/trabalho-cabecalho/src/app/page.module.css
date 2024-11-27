@@ -1,6 +1,9 @@
 .pag{
+    text-align: center;
     margin-top: 20%;
-    color: rgb(0, 38, 255);
+    color: rgb(0, 0, 0);
     font-size: 40px;
-    border: 2px solid black;
+    font-family: monospace;
+
+
 }

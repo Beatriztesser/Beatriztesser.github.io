@@ -9,7 +9,7 @@ body {
   position: fixed;
   top: 0;
   width: 100%;
-  background-color: #fc9ecd;
+  background-color:#8ad3b7;
   color: white;
   display: flex;
   justify-content: space-between;
@@ -24,7 +24,13 @@ body {
   border: none;
   color: white;
   cursor: pointer;
+  transition: all 0.5s;
+  outline: none;
 }
+.menu-toggle:hover{
+ box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;;
+}
+
 
 .nav {
   display: none; 
@@ -37,7 +43,8 @@ body {
   background-color: #222;
   padding: 1rem;
   overflow-y: auto; 
-  transition: transform 0.3s ease-in-out;
+  /* transition: transform 0.3s ease-in-out; */
+  
   transform: translateX(-100%); 
 }
 

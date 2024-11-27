@@ -29,7 +29,7 @@ const Header = () => {
 
   return (
     <header className="header">
-      <Image src="/images/logoo.webp" alt="Logo" className="logo"  width="50" height="50"/>
+      <Image src="/images/logo.avif" alt="Logo" className="logo"  width="130" height="50"/>
     
 
       <button
@@ -38,7 +38,8 @@ const Header = () => {
         aria-expanded={isOpen}
         aria-label="Abrir menu"
       >
-        ☰
+        {/* ☰ */}
+        <Image src='/images/icone-trocar.png' alt='barra' width='50'  height="50"></Image>
       </button>
       <nav className={`nav ${isOpen ? "active" : ""}`}>
         <ul className="nav-list">
