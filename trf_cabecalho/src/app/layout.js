@@ -2,7 +2,7 @@ import "./globals.css";
 import Header from "@/components/Header";
 
 export const metadata = {
-  title: "beatriz Tesser",
+  title: "Beatriz Tesser",
   description: "Aplicação de Front-end_II",
   charset: "UTF-8",
   author: "Beatriz Eduarda",
