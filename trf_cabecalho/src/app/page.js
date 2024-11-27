@@ -5,7 +5,7 @@ export default function Home() {
 
   return (
     <div>
-    <p className={styles.pag}>Pagina principal</p>
+    <p className={styles.pag}>Página principal da Beatriz!</p>
     
 </div>
   );

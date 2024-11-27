@@ -2,10 +2,10 @@ import "./globals.css";
 import Header from "@/components/Header";
 
 export const metadata = {
-  title: "Mariana",
+  title: "beatriz Tesser",
   description: "Aplicação de Front-end_II",
   charset: "UTF-8",
-  author: "Mariana Zorzi",
+  author: "Beatriz Eduarda",
   keywords:"HTML, CSS, JS, React, Next.js"
 
 };

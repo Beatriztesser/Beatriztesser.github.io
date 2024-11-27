@@ -29,7 +29,7 @@ const Header = () => {
 
   return (
     <header className="header">
-      <Image src="/images/logoo.webp" alt="Logo" className="logo"  width="50" height="50"/>
+      <Image src="/images/logbbb.png" alt="Logo" className="logo"  width="90" height="80"/>
     
 
       <button
