@@ -15,19 +15,20 @@
 // ancora.style.fontWeight= 'bold'
 // body.appendChild(ancora)
 
-const body= document.querySelector('body')
+// const body= document.querySelector('body')
 
-const lista= document.createElement('ul')
-const item1= documento.createElement('li')
-const item2= documento.createElement('li')
-const item3= documento.createElement('li')
+// const lista= document.createElement('ul')
+// const item1= documento.createElement('li')
+// const item2= documento.createElement('li')
+// const item3= documento.createElement('li')
 
-item1.textContent= 'item-1'
-item2.textContent= 'item-2'
-item3.textContent= 'item-3'
+// item1.textContent= 'item-1'
+// item2.textContent= 'item-2'
+// item3.textContent= 'item-3'
 
-lista.append(item1)
-lista.append(item2)
-lista.append(item3)
+// lista.append(item1)
+// lista.append(item2)
+// lista.append(item3)
 
-body.append(lista)
+// body.append(lista)
+
