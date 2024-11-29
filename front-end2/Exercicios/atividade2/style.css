@@ -76,8 +76,28 @@ div{
     background-color: yellow;
 }
 
-@media(max-widht:600px){
-    .container2{
-        display: none;
+/* @media(min-widht :600px){
+    .link-menu{
+        color: red
+     }
+} */
+
+/* @media screen and (max-width:500px){
+    h1{
+        color: red;
+    }
+} */
+/* @media print or (max-width: 600px){
+    h1{
+        color: green;
+    }
+} */
+
+
+
+
+@media print, (min-width: 500px), (orientation: landscape) {
+    h1{
+        color: blue;
     }
 }

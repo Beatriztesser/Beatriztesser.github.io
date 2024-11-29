@@ -24,8 +24,7 @@
 //     console.log('oii')
 // }
 
-p1= document.querySelector('#p1')
-p1.addEventListener('click', (ev)=> {
+p1 = document.querySelector('#p1')
+p1.addEventListener('dblclick', (ev) => {
     console.log('clicou no elemento', ev.target)
-}
-)
+});

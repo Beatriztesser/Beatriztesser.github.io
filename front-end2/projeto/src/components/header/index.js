@@ -9,7 +9,7 @@ export default function Header () {
             <button onClick={()=>setShowMenu (!showMenu)}> clique </button>
             {
                 showMenu&&
-                <nav>  
+                <nav className={styles.nav}>  
                 <ul>
                     <li> <Link href='/'> Home </Link> </li>
                     <li> <Link href='/sobre'>Sobre </Link> </li>
