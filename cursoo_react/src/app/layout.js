@@ -11,19 +11,11 @@ export const metadata = {
 };
 
 
-const Bemvindo= (props)=> {
-    return(
-      <div>
-        <h2>Bem vindo {props.nome}</h2>
-      </div>
-    )
-}
 
 export default function RootLayout({ children }) {
   return (
     <html lang="pt-br">
       <body>
-        <Bemvindo nome='Bea'/>
         
         {children}
       </body>

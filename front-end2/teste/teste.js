@@ -32,3 +32,22 @@
 
 // body.append(lista)
 
+
+// function some(num1, num2) {
+//     const total = num1 + num2;
+//     return total;  // Apenas retorna o valor da soma
+// }
+
+// // A parte que vai imprimir o resultado deve ser separada:
+// const resultado = some(2, 3);
+// console.log(resultado);  // Aqui você imprime o resultado quando necessário
+
+
+
+const some= (num1,num2)=>{
+    const total= num1+num2
+    return total
+}
+
+resultado= some(2,5)
+console.log(resultado)
