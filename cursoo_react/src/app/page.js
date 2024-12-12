@@ -41,11 +41,36 @@ export default function Ap(){
       isCompleted:  false
     }
   ])
+
+
+  function onTaskClick(taskId){
+    const newTask= tasks.map(task=>{
+        if (task.id === taskId){
+            return{...task, isCompleted:
+                !task.isCompleted} 
+        } else{
+            return task 
+        }
+           
+    });
+    setTasks(newTask)
+  }
+
+  function onDeleteTaskClick(taskId){
+    const newTask= tasks.filter(task=> task.id!=taskId)
+
+    }
+
+  }
+
+
+
   return(
+    
     <div>
       <h1>Gerenciador de tarefas</h1>
       {/* <AddTasks/> */}
-      <Tasks task={tasks}/>
+      <Tasks task={tasks} onTaskClick={onTaskClick} />
     </div>
   )
 }
