@@ -19,58 +19,51 @@ import Tasks from "./components/Tasks";
 // }
 
 
-export default function Ap(){
-  const [tasks, setTasks]=useState([
+import { useState } from "react";
+
+export default function Ap() {
+  const [tasks, setTasks] = useState([
     {
-      id:1,
-      title: 'Estudar',
+      id: 1,
+      title: "Estudar",
       description: "Estudar programação",
-      isCompleted: false
+      isCompleted: false,
     },
     {
-      id:2,
+      id: 2,
       title: "Estudar Inglês",
-      description: "Estudar inglês amanha",
-      isCompleted: false
+      description: "Estudar inglês amanhã",
+      isCompleted: false,
     },
-
     {
-      id:3,
+      id: 3,
       title: "Estudar matemática",
-      description:'Estudarrrrrrr',
-      isCompleted:  false
-    }
-  ])
+      description: "Estudarrrrrrr",
+      isCompleted: false,
+    },
+  ]);
 
-
-  function onTaskClick(taskId){
-    const newTask= tasks.map(task=>{
-        if (task.id === taskId){
-            return{...task, isCompleted:
-                !task.isCompleted} 
-        } else{
-            return task 
-        }
-           
+  function onTaskClick(taskId) {
+    const newTask = tasks.map((task) => {
+      if (task.id === taskId) {
+        return { ...task, isCompleted: !task.isCompleted };
+      } else {
+        return task;
+      }
     });
-    setTasks(newTask)
+    setTasks(newTask);
   }
 
-  function onDeleteTaskClick(taskId){
-    const newTask= tasks.filter(task=> task.id!=taskId)
-
-    }
-
+  function onDeleteTaskClick(taskId) {
+    const newTask = tasks.filter((task) => task.id !== taskId);
+    setTasks(newTask); 
   }
 
-
-
-  return(
-    
+  return (
     <div>
       <h1>Gerenciador de tarefas</h1>
-      {/* <AddTasks/> */}
-      <Tasks task={tasks} onTaskClick={onTaskClick} />
+      {/* <AddTasks /> */}
+      <Tasks task={tasks} onTaskClick={onTaskClick} onDeleteTaskClick={onDeleteTaskClick} />
     </div>
-  )
+  );
 }
