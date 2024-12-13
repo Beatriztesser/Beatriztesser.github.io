@@ -1,11 +1,17 @@
 import express from 'express';
-
 const app= express();
 
-const messages= require ('./controllers/messages')
+import messages from './controllers/messages.js';
 
-app.listen(8080),()=>{
-    console.log('Servidor iniciado na porta 8080')
-}
+// criar um middleware
+// (um função que sera executada antes de acesar 
+// a rota) para recebe os dados no corpo ds requisição
+app.use(express.json())
 
-app.get
+import db from "./db/models/index.js";
+
+app.use('/message', messages);
+
+app.listen(8080, ()=>{
+    console.log("servidor inicado na porta 8080")
+})

@@ -9,6 +9,8 @@ export default function Cadastro() {
     const [data, stateData]= useState({
         name: '',
         cpf:'',
+        cidade:'',
+        estado:'',
         endereco: '',
         bairro: '',
         email: '',
@@ -26,6 +28,8 @@ export default function Cadastro() {
         console.log(`Nome: ${data.name}`);
         console.log(`Email: ${data.email}`);
         console.log(`CPF: ${data.cpf}`);
+        console.log(`cidade: ${data.cidade}`);
+        console.log(`Estado : ${data.estado}`);
         console.log(`Endereço: ${data.endereco}`);
         console.log(`Bairro: ${data.bairro}`);
         console.log(`Telefone: ${data.telefone}`);
@@ -45,7 +49,15 @@ export default function Cadastro() {
         </div>
         <div>
           <label >CPF:</label>
-          <input type="text" id="cpf" name="cpf" onChange={valorInput}/>
+          <input type="text" name="cpf" onChange={valorInput}/>
+        </div>
+        <div>
+          <label>cidade</label>
+          <input type="text"name="cidade" onChange={valorInput}/>
+        </div>
+        <div>
+          <label>Estado:</label>
+          <input type="text" name="estado" onChange={valorInput}/>
         </div>
         <div>
           <label>Endereço:</label>
@@ -63,6 +75,7 @@ export default function Cadastro() {
           <label>Telefone:</label>
           <input type="text" id="telefone" name="telefone" onChange={valorInput}/>
         </div>
+
         <button type="submit">Cadastrar</button>
       </form>
     </div>

@@ -1,0 +1,14 @@
+
+// const path = require('path');
+import path from 'path';
+
+// module.exports = {
+//   'config': path.resolve( 'db', 'config', 'config.json'),
+//   'models-path': path.resolve('db', 'models'),
+//   'seeders-path': path.resolve('db','seeders'),
+//   'migrations-path': path.resolve('db','migrations'),
+// };
+export const config = path.resolve('db', 'config', 'config.json');
+export const modelsPath = path.resolve('db', 'models');
+export const seedersPath = path.resolve('db', 'seeders');
+export const migrationsPath = path.resolve('db', 'migrations');
