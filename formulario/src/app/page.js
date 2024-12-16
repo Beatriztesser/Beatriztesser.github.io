@@ -6,7 +6,7 @@ import { useState } from "react";
 import React from "react";
 
 export default function Cadastro() {
-    const [data, stateData]= useState({
+    const [data, setData]= useState({
         name: '',
         cpf:'',
         cidade:'',
@@ -17,9 +17,7 @@ export default function Cadastro() {
         telefone: ''
     });
 
-    const valorInput = e => stateData({...data, [e.target.name]: e.target.value })
-
-    
+    const valorInput = e => setData({...data, [e.target.name]: e.target.value })
 
     const sendMsg= (e)=>{
 
@@ -81,7 +79,3 @@ export default function Cadastro() {
     </div>
   );
 }
-
-
-        
-  
