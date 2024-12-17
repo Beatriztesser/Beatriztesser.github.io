@@ -1,81 +1,84 @@
 "use client";
 import { useState } from "react";
-// import styles from './page.module.css';
-
-
+import styles from './page.module.css';
 import React from "react";
 
 export default function Cadastro() {
-    const [data, setData]= useState({
-        name: '',
-        cpf:'',
-        cidade:'',
-        estado:'',
+    const [data, setData] = useState({
+        nome: '',
+        email: '',
+        nascimento: '',
+        naturalidade: '',
+        cpf: '',
+        telefone: '',
+        cidade: '',
+        estado: '',
         endereco: '',
         bairro: '',
-        email: '',
-        telefone: ''
+        sexo: ''
     });
 
-    const valorInput = e => setData({...data, [e.target.name]: e.target.value })
+    const valorInput = e => setData({ ...data, [e.target.name]: e.target.value });
 
-    const sendMsg= (e)=>{
-
+    const addUser = (e) => {
         e.preventDefault();
 
-        console.log(`Nome: ${data.name}`);
+        console.log(`Nome: ${data.nome}`);
         console.log(`Email: ${data.email}`);
         console.log(`CPF: ${data.cpf}`);
-        console.log(`cidade: ${data.cidade}`);
-        console.log(`Estado : ${data.estado}`);
+        console.log(`Cidade: ${data.cidade}`);
+        console.log(`Estado: ${data.estado}`);
         console.log(`Endereço: ${data.endereco}`);
         console.log(`Bairro: ${data.bairro}`);
         console.log(`Telefone: ${data.telefone}`);
-    }
+    };
 
-
-
-
-  return (
-
-    <div>
-      <h1>Cadastro</h1>
-      <form onSubmit={sendMsg}>
-        <div>
-          <label>Nome:</label>
-          <input type="text"  name="nome"  onChange={valorInput}/>
+    return (
+        <div className={styles.container}>
+            <h1>Cadastro</h1>
+            <form onSubmit={addUser} className={styles.form}>
+                <label>
+                    <span>Nome:</span>
+                    <input type="text" name="nome" onChange={valorInput} />
+                </label>
+                <label>
+                    <span>E-mail:</span>
+                    <input type="email" name="email" onChange={valorInput} />
+                </label>
+                <label>
+                    <span>Data de Nascimento:</span>
+                    <input type="text" name="nascimento" onChange={valorInput} />
+                </label>
+                <label>
+                    <span>Naturalidade:</span>
+                    <input type="text" name="naturalidade" onChange={valorInput} />
+                </label>
+                <label>
+                    <span>CPF:</span>
+                    <input type="text" name="cpf" onChange={valorInput} />
+                </label>
+                <label>
+                    <span>Telefone:</span>
+                    <input type="text" name="telefone" onChange={valorInput} />
+                </label>
+                <label>
+                    <span>Cidade:</span>
+                    <input type="text" name="cidade" onChange={valorInput} />
+                </label>
+                <label>
+                    <span>Estado:</span>
+                    <input type="text" name="estado" onChange={valorInput} />
+                </label>
+                <label>
+                    <span>Endereço:</span>
+                    <input type="text" name="endereco" onChange={valorInput} />
+                </label>
+                <label>
+                    <span>Bairro:</span>
+                    <input type="text" name="bairro" onChange={valorInput} />
+                </label>
+                <button type="submit">Cadastrar</button>
+            </form>
         </div>
-        <div>
-          <label >CPF:</label>
-          <input type="text" name="cpf" onChange={valorInput}/>
-        </div>
-        <div>
-          <label>cidade</label>
-          <input type="text"name="cidade" onChange={valorInput}/>
-        </div>
-        <div>
-          <label>Estado:</label>
-          <input type="text" name="estado" onChange={valorInput}/>
-        </div>
-        <div>
-          <label>Endereço:</label>
-          <input type="text" id="endereco" name="endereco" onChange={valorInput} />
-        </div>
-        <div>
-          <label>Bairro:</label>
-          <input type="text" id="bairro" name="bairro" onChange={valorInput} />
-        </div>
-        <div>
-          <label>E-mail:</label>
-          <input type="email" id="email" name="email" onChange={valorInput}/>
-        </div>
-        <div>
-          <label>Telefone:</label>
-          <input type="text" id="telefone" name="telefone" onChange={valorInput}/>
-        </div>
-
-        <button type="submit">Cadastrar</button>
-      </form>
-    </div>
-  );
+    );
 }
