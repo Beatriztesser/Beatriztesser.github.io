@@ -6,7 +6,7 @@ const Sequelize = require('sequelize');
 const process = require('process');
 const basename = path.basename(__filename);
 const env = process.env.NODE_ENV || 'development';
-const config = require(__dirname + '/../config/config.cjs')[env];
+const config = require(__dirname + '/../config/config.js')[env];
 const db = {};
 
 let sequelize;
@@ -16,12 +16,14 @@ if (config.use_env_variable) {
   sequelize = new Sequelize(config.database, config.username, config.password, config);
 }
 
-try{
-  console.log('Conexão com banco de dadosss')
-}catch(error){
-  console.log('errrrrrooo', error)
-}
-
+// Tentar autenticar a conexão com o banco de dados
+sequelize.authenticate()
+  .then(() => {
+    console.log('Conexão com o banco de dados estabelecida com sucesso');
+  })
+  .catch((error) => {
+    console.error('Erro na conexão com o banco de dados:', error);
+  });
 
 fs
   .readdirSync(__dirname)
@@ -47,5 +49,4 @@ Object.keys(db).forEach(modelName => {
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
-module.exports = db; 
-
+module.exports = db;

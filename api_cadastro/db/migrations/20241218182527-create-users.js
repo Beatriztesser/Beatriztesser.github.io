@@ -15,7 +15,28 @@ module.exports = {
       email: {
         type: Sequelize.STRING
       },
-      image: {
+      nascimento: {
+        type: Sequelize.STRING
+      },
+      naturalidade: {
+        type: Sequelize.STRING
+      },
+      cpf: {
+        type: Sequelize.STRING
+      },
+      telefone: {
+        type: Sequelize.STRING
+      },
+      cidade: {
+        type: Sequelize.STRING
+      },
+      estado: {
+        type: Sequelize.STRING
+      },
+      endereco: {
+        type: Sequelize.STRING
+      },
+      bairro: {
         type: Sequelize.STRING
       },
       createdAt: {
