@@ -18,6 +18,7 @@ export default function Header () {
                         <li> <Link href='/listas'> Listas</Link></li>
                         <li> <Link href='/props'> Propss </Link></li>
                         <li> <Link href='/filter'> Filter</Link></li>
+                        <li> <Link href='/efeitos'> efeitos</Link></li>
                     </ul> 
                 </nav>
             }

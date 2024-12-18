@@ -1,3 +1,4 @@
+'use client';
 import { useState } from "react";
 
 export default function Header(){
@@ -14,13 +15,12 @@ export default function Header(){
         <div>
             <h1>Filter/ Filtro</h1>
             <input
-
                 value={busca}
                 type="text" 
                 onChange={ev=>(setBusca(ev.target.value))}/>
 
             <h2>Lista de nomes</h2>
-                {nomes.map((nomes, i)=>(
+                {nomesBusca.map((nomes, i)=>(
                     <li key={i}>
                         {nomes}
                     </li>   

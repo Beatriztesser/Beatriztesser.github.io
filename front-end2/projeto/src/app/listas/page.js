@@ -55,8 +55,6 @@ export default function Listas(){
                     </div>   
                 ))}
             </div>
-            
-            
         </div>
     )
 }
