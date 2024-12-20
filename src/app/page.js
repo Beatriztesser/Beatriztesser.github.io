@@ -1,13 +1,33 @@
-'use client';
-import styles from "./page.module.css";
-import Form from "./components/Form"
+"use client";
+import styled from "styled-components";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import Form from "./components/Form.js";
 
+const Container = styled.div`
+  width: 100%;
+  max-width: 800px;
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+`;
+
+const Title = styled.h2`
+font-family: 'Poppins';
+font-weight: 600;
+`;
 
 
 export default function Home() {
   return (
-    <div className={styles.containerMaster}>
-      <h1>CADASTRAR</h1>
-    </div>
-  );
+    <>
+    <Container>
+      <Title>CADASTRAR</Title>
+      <Form/>
+    </Container>
+    <ToastContainer autoClose={3000} position="bottom-left" />
+    </>
+  )
 }
