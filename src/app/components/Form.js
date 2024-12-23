@@ -6,19 +6,20 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const FormContainer = styled.form`
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   gap: 10px;
   flex-wrap: wrap;
   background-color: #fff;
   padding: 20px;
   box-shadow: 0px 0px 5px #ccc;
   border-radius: 5px;
+  justify-content: center;
 `;
 
 const InputArea = styled.div`
   display: flex;
   flex-direction: column;
-  margin-bottom: 40px;
+  padding: 20px 0;
 `;
 
 const Input = styled.input`
@@ -27,6 +28,7 @@ const Input = styled.input`
   border: 1px solid #bbb;
   border-radius: 5px;
   height: 2.4vw;
+
 `;
 
 const Label = styled.label`
@@ -42,6 +44,14 @@ const Button = styled.button`
   color: white;
   height: 38px;
   font-family: 'Poppins';
+  
+  &:hover {
+    color: white;
+    transition: all 0.3s ease; /* Transição suave para os efeitos */
+    background-color: green;
+    transform: scale(1.02);
+  
+}
 `;
 
 const Form = ({ addUser }) => {
@@ -49,10 +59,8 @@ const Form = ({ addUser }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    console.log("Formulario enviado!");
-    const user = ref.current; 
-
+    const user = ref.current;
+  
     if (
       !user.nome.value ||
       !user.email.value ||
@@ -66,23 +74,22 @@ const Form = ({ addUser }) => {
     ) {
       return toast.warn("Preencha todos os campos!");
     }
-
-
-    if (addUser) {
-      await axios
-        .post("http://localhost:8800", {
-          nome: user.nome.value,
-          email: user.email.value,
-          data_nascimento: user.data_nascimento.value,
-          cpf: user.cpf.value,
-          telefone: user.telefone.value,
-          cidade: user.cidade.value,
-          estado: user.estado.value,
-          endereco: user.endereco.value,
-          bairro: user.bairro.value
-        })
-        .then(({ data }) => toast.success(data))
-        .catch(({ data }) => toast.error(data));
+  
+    try {
+      const response = await axios.post("http://localhost:8800/", {
+        nome: user.nome.value,
+        email: user.email.value,
+        data_nascimento: user.data_nascimento.value,
+        cpf: user.cpf.value,
+        telefone: user.telefone.value,
+        cidade: user.cidade.value,
+        estado: user.estado.value,
+        endereco: user.endereco.value,
+        bairro: user.bairro.value
+      });
+      toast.success(response.data);
+    } catch (error) {
+      toast.error("Erro ao cadastrar o usuário");
     }
   };
 
