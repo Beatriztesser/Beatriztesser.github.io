@@ -11,24 +11,17 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   gap: 10px;
-  
+  margin: 0 auto;
 `;
-
-const Title = styled.h1`
-font-family: 'Poppins';
-font-weight: 600;
-font-size: 3.2vh;
-
-`;
-
 
 
 export default function Home() {
   return (
     <>
     <Container>
-      <Title>Cadastrar cliente</Title>
+      
       <Form/>
     </Container>
     <ToastContainer autoClose={3000} position="bottom-left" />
