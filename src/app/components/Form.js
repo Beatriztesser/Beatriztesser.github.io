@@ -1,9 +1,10 @@
 import styled from "styled-components";
-import React, { useRef} from "react";
+import React, { useRef, useState } from "react";
 import axios from "axios";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { useForm } from "react-hook-form";
+import { insertMaskinCpf } from "../functions/cpf";
+import { insertMaskIPhone } from "../functions/phone";
 
 const FormContainer = styled.form`
  display: flex;
@@ -16,7 +17,6 @@ const FormContainer = styled.form`
   border-radius: 5px;
   justify-content: center;
   margin: 40px 0;
-  
 `;
 
 const InputArea = styled.div`
@@ -32,7 +32,6 @@ const Input = styled.input`
   border-radius: 5px;
   height: 1.7vw;
   font-size: 1vw;
-
 `;
 
 const Label = styled.label`
@@ -54,8 +53,7 @@ const Button = styled.button`
     transition: all 0.3s ease; 
     background-color: green;
     transform: scale(1.02);
-  
-}
+  }
 `;
 
 const SubContainer = styled.div`
@@ -65,8 +63,7 @@ const SubContainer = styled.div`
   border-radius: 20px;
   margin-top: 30px;
   padding: 5px;
-
-`
+`;
 
 const SubTitle= styled.h2`
   font-size: 1.4vw;
@@ -78,8 +75,7 @@ const SubTitle= styled.h2`
   padding: 5px 10px;
   top: -21px;
   margin-left: 25px;
-
-`
+`;
 
 const DivInputs = styled.div`
   display: flex;
@@ -89,52 +85,52 @@ const DivInputs = styled.div`
   flex-wrap: wrap;
   gap: 10px;
   justify-content: space-around;
-`
-
+`;
 
 const Title = styled.h1`
 margin-top: 20px;
 font-family: 'Poppins';
 font-weight: 600;
 font-size: 3.8vh;
-
 `;
 
 const DivHeader= styled.div`
   text-align: center;
   position: relative;
   padding-top: 10px;
-`
+`;
+
 const Form = ({ addUser }) => {
+  const [cpf, setCpf] = useState("");
+  const [telefone, setTelefone] = useState("");
   const ref = useRef(); 
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     const user = ref.current;
-  
+
     if (
       !user.nome.value ||
       !user.email.value ||
       !user.data_nascimento.value ||
-      !user.cpf.value ||
+      !cpf ||
       !user.telefone.value ||
-      !user.cep.value||
+      !user.cep.value ||
       !user.cidade.value ||
       !user.estado.value ||
       !user.endereco.value ||
-      !user.bairro.value||
+      !user.bairro.value ||
       !user.numero.value
-
     ) {
       return toast.warn("Preencha todos os campos!");
     }
-  
+
     try {
       const response = await axios.post("http://localhost:8800/", {
         nome: user.nome.value,
         email: user.email.value,
         data_nascimento: user.data_nascimento.value,
-        cpf: user.cpf.value,
+        cpf: cpf,
         telefone: user.telefone.value,
         cidade: user.cidade.value,
         estado: user.estado.value,
@@ -148,79 +144,84 @@ const Form = ({ addUser }) => {
     }
   };
 
-  const checkCep=(e)=>{
-    const cep= e.target.value.replace(/\D/g, '');
-    console.log(cep)
-    fetch(`https://viacep.com.br/ws/${cep}/json/`).then(res=>res.json()).then(data=>{
-      console.log(data)
-      setValue('endreco', data.logradouro)
-      setValue('bairro', data.bairro)
-      setValue('cidade', data.localidade)
-      setValue('estado', data.uf);
+  const handleCpfChange = (e) => {
+    const value = e.target.value;
+    setCpf(insertMaskinCpf(value)); 
+  };
 
-    });
+  const handleTelefoneChange = (e) => {
+    const value = e.target.value;
+    setTelefone(insertMaskIPhone(value));
+   }
 
-  }
-
+  
   return (
     <FormContainer ref={ref} onSubmit={handleSubmit}>
       <DivHeader>
-              <Title>Cadastrar cliente</Title>
-            </DivHeader>
+        <Title>Cadastrar cliente</Title>
+      </DivHeader>
       <SubContainer>
-          <SubTitle> Dados pessoais: </SubTitle>
-          <DivInputs>
-            <InputArea>
-              <Label>Nome: </Label>
-              <Input name="nome" />
-            </InputArea>
-            <InputArea>
-              <Label>E-mail:</Label>
-              <Input name="email" type="email" />
-            </InputArea>
-            <InputArea>
-              <Label>Data de Nascimento:</Label>
-              <Input name="data_nascimento" type="date" />
-            </InputArea>
-            <InputArea>
-              <Label>CPF:</Label>
-              <Input name="cpf" type="text" />
-            </InputArea>
-            <InputArea>
-              <Label>Telefone:</Label>
-              <Input name="telefone" type="text" />
+        <SubTitle> Dados pessoais: </SubTitle>
+        <DivInputs>
+          <InputArea>
+            <Label>Nome: </Label>
+            <Input name="nome" />
           </InputArea>
-          </DivInputs> 
+          <InputArea>
+            <Label>E-mail:</Label>
+            <Input name="email" type="email" />
+          </InputArea>
+          <InputArea>
+            <Label>Data de Nascimento:</Label>
+            <Input name="data_nascimento" type="date" />
+          </InputArea>
+          <InputArea>
+            <Label>CPF:</Label>
+            <Input
+              name="cpf"
+              type="text"
+              value={cpf}
+              onInput={handleCpfChange}
+            />
+          </InputArea>
+          <InputArea>
+            <Label>Telefone:</Label>
+            <Input 
+              name="telefone" 
+              type="text" 
+              value={telefone} 
+              onInput={handleTelefoneChange}/>
+          </InputArea>
+        </DivInputs> 
       </SubContainer>
       
       <SubContainer>
-         <SubTitle> Endereço:  </SubTitle>
+        <SubTitle> Endereço: </SubTitle>
         <DivInputs>
-
-        <InputArea>
-          <Label>Cep:</Label>
-          <Input name="cep" type="text" onBlur={checkCep}/>
-        </InputArea>
-        <InputArea>
-          <Label>Cidade:</Label>
-          <Input name="cidade" type="text" />
-        </InputArea>
-        <InputArea>
-          <Label>Estado:</Label>
-          <Input name="estado" type="text" />
-        </InputArea>
-        <InputArea>
-          <Label>Endereço:</Label>
-          <Input name="endereco" type="text" />
-        </InputArea>
-        <InputArea>
-          <Label>Bairro:</Label>
-          <Input name="bairro" type="text" />
-        </InputArea>
-        <InputArea>
-          <Label>Número:</Label>
-          <Input name="numero" type="text" />
-        </InputArea>
+          <InputArea>
+            <Label>Cep:</Label>
+            <Input name="cep" type="text" />
+          </InputArea>
+          <InputArea>
+            <Label>Cidade:</Label>
+            <Input name="cidade" type="text" />
+          </InputArea>
+          <InputArea>
+            <Label>Estado:</Label>
+            <Input name="estado" type="text" />
+          </InputArea>
+          <InputArea>
+            <Label>Endereço:</Label>
+            <Input name="endereco" type="text" />
+          </InputArea>
+          <InputArea>
+            <Label>Bairro:</Label>
+            <Input name="bairro" type="text" />
+          </InputArea>
+          <InputArea>
+            <Label>Número:</Label>
+            <Input name="numero" type="text" />
+          </InputArea>
         </DivInputs>
       </SubContainer>
       
