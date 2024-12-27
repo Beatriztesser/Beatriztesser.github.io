@@ -1,13 +1,15 @@
 import styled from "styled-components";
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { insertMaskinCpf } from "../functions/cpf";
 import { insertMaskIPhone } from "../functions/phone";
+import { useForm } from 'react-hook-form';  // Importe o useForm corretamente
+import { checkCep } from "../functions/endereco";
 
 const FormContainer = styled.form`
- display: flex;
+  display: flex;
   align-items: center;
   gap: 10px;
   flex-wrap: wrap;
@@ -88,10 +90,10 @@ const DivInputs = styled.div`
 `;
 
 const Title = styled.h1`
-margin-top: 20px;
-font-family: 'Poppins';
-font-weight: 600;
-font-size: 3.8vh;
+  margin-top: 20px;
+  font-family: 'Poppins';
+  font-weight: 600;
+  font-size: 3.8vh;
 `;
 
 const DivHeader= styled.div`
@@ -101,42 +103,41 @@ const DivHeader= styled.div`
 `;
 
 const Form = ({ addUser }) => {
+  const { register, handleSubmit, setValue } = useForm(); 
   const [cpf, setCpf] = useState("");
   const [telefone, setTelefone] = useState("");
-  const ref = useRef(); 
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const user = ref.current;
+  const onSubmit = async (dados) => {
+    const { nome, email, data_nascimento, telefone, cep, cidade, estado, endereco, bairro, numero } = dados;
 
     if (
-      !user.nome.value ||
-      !user.email.value ||
-      !user.data_nascimento.value ||
+      !nome ||
+      !email ||
+      !data_nascimento ||
       !cpf ||
-      !user.telefone.value ||
-      !user.cep.value ||
-      !user.cidade.value ||
-      !user.estado.value ||
-      !user.endereco.value ||
-      !user.bairro.value ||
-      !user.numero.value
+      !telefone ||
+      !cep ||
+      !cidade ||
+      !estado ||
+      !endereco ||
+      !bairro ||
+      !numero
     ) {
       return toast.warn("Preencha todos os campos!");
     }
 
     try {
       const response = await axios.post("http://localhost:8800/", {
-        nome: user.nome.value,
-        email: user.email.value,
-        data_nascimento: user.data_nascimento.value,
-        cpf: cpf,
-        telefone: user.telefone.value,
-        cidade: user.cidade.value,
-        estado: user.estado.value,
-        endereco: user.endereco.value,
-        bairro: user.bairro.value,
-        numero: user.numero.value
+        nome,
+        email,
+        data_nascimento,
+        cpf,
+        telefone,
+        cidade,
+        estado,
+        endereco,
+        bairro,
+        numero
       });
       toast.success(response.data);
     } catch (error) {
@@ -152,11 +153,21 @@ const Form = ({ addUser }) => {
   const handleTelefoneChange = (e) => {
     const value = e.target.value;
     setTelefone(insertMaskIPhone(value));
-   }
+  }
 
-  
+  const handleCepChange= (e)=>{
+    const value = e.target.value
+    checkCep(value, setValue, toast);
+  }
+  const handleNumeroChange = (e) => {
+    let numero = e.target.value;
+    numero = numero.replace(/\D/g, '');
+    e.target.value = numero;  
+    setValue('numero', numero);  
+  }
+ 
   return (
-    <FormContainer ref={ref} onSubmit={handleSubmit}>
+    <FormContainer onSubmit={handleSubmit(onSubmit)}>
       <DivHeader>
         <Title>Cadastrar cliente</Title>
       </DivHeader>
@@ -165,20 +176,20 @@ const Form = ({ addUser }) => {
         <DivInputs>
           <InputArea>
             <Label>Nome: </Label>
-            <Input name="nome" />
+            <Input {...register('nome', { required: true })} />
           </InputArea>
           <InputArea>
             <Label>E-mail:</Label>
-            <Input name="email" type="email" />
+            <Input {...register('email', { required: true })} type="email" />
           </InputArea>
           <InputArea>
             <Label>Data de Nascimento:</Label>
-            <Input name="data_nascimento" type="date" />
+            <Input {...register('data_nascimento', { required: true })} type="date" />
           </InputArea>
           <InputArea>
             <Label>CPF:</Label>
             <Input
-              name="cpf"
+              {...register('cpf', { required: true })}
               type="text"
               value={cpf}
               onInput={handleCpfChange}
@@ -187,10 +198,11 @@ const Form = ({ addUser }) => {
           <InputArea>
             <Label>Telefone:</Label>
             <Input 
-              name="telefone" 
+              {...register('telefone', { required: true })}
               type="text" 
               value={telefone} 
-              onInput={handleTelefoneChange}/>
+              onInput={handleTelefoneChange}
+            />
           </InputArea>
         </DivInputs> 
       </SubContainer>
@@ -200,27 +212,27 @@ const Form = ({ addUser }) => {
         <DivInputs>
           <InputArea>
             <Label>Cep:</Label>
-            <Input name="cep" type="text" />
+            <Input {...register('cep', { required: true })} type="text" onInput={handleCepChange}  />
           </InputArea>
           <InputArea>
             <Label>Cidade:</Label>
-            <Input name="cidade" type="text" />
+            <Input {...register('cidade', { required: true })} type="text" />
           </InputArea>
           <InputArea>
             <Label>Estado:</Label>
-            <Input name="estado" type="text" />
+            <Input {...register('estado', { required: true })} type="text" />
           </InputArea>
           <InputArea>
             <Label>Endereço:</Label>
-            <Input name="endereco" type="text" />
+            <Input {...register('endereco', { required: true })} type="text" />
           </InputArea>
           <InputArea>
             <Label>Bairro:</Label>
-            <Input name="bairro" type="text" />
+            <Input {...register('bairro', { required: true })} type="text" />
           </InputArea>
           <InputArea>
             <Label>Número:</Label>
-            <Input name="numero" type="text" />
+            <Input {...register('numero', { required: true })} type="text" onInput={handleNumeroChange} />
           </InputArea>
         </DivInputs>
       </SubContainer>
