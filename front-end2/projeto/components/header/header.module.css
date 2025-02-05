@@ -1,5 +1,5 @@
 .containerMenu{
-    background-color: red;
+    background-color: beige;
     height:  80px;
     width: 100%;
     display: flex;
@@ -14,4 +14,13 @@
 
 .container-menu>li{
     position: relative;
+}
+.logo{
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.linkMenu{
+    font-family: "Poppins";
 }
