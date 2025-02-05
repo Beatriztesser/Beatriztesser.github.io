@@ -24,3 +24,41 @@
 .linkMenu{
     font-family: "Poppins";
 }
+
+
+
+
+
+.containerMenu {
+    display: flex;
+    gap: 30px;
+    list-style-type: none;
+}
+
+.linkMenu {
+    color: rgb(0, 0, 0);
+    font-size: 20px;
+    text-decoration: none;
+}
+
+.dropdown {
+    position: relative;
+}
+
+.containerSubMenu {
+    position: absolute;
+    max-height: 0;
+    overflow: hidden;
+    background-color: rgb(10, 51, 37);
+    border-radius: 5px;
+    transition: max-height 1s;
+}
+
+.containerMenu li:hover .containerSubMenu {
+    max-height: 100vh;
+}
+
+.linkSubMenu {
+    font-size: 18px;
+    color: rgb(255, 255, 255);
+}
