@@ -35,19 +35,19 @@ import styles from './header.module.css';
 
 export default function Header() {
     return (
-        <header className={styles.bottomHeader}>
-            <nav className={styles.interface}>
+        <header >
+            <nav>
                 <ul className={styles.containerMenu}>
                 <Image src= "/logo.png" alt= "Logo" className="logo" width= "200" height= "200"/>
                     <li><Link className={styles.linkMenu} href="#"> Home</Link></li>
                     <li><Link className={styles.linkMenu} href="#">Médicos</Link></li>
                     <li><Link className={styles.linkMenu} href="#">Pacientes</Link></li>
-                    <li><Link className={styles.dropHover} href="#">Agendamento</Link>
-                        <div className={styles.drop}>
+                    <li><Link className={styles.linkMenu} href="#">Agendamento</Link>
+                        <ul className={styles.containerSubMenu}>
                             <a href="/agendamentos/agendar_consulta/agendar_consulta.js">Listar consultas</a>
                             <a href="#">Agendar consultas</a>
                             <a href="#">Editar consultas</a>
-                        </div>
+                        </ul>
                     </li>
 
                 </ul>
