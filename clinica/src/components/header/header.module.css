@@ -1,5 +1,5 @@
 .menuBar {
-    background-color: beige;
+    background-color: #87c6d1c0;
     height: 80px;
     width: 100%;
     display: flex;
@@ -8,6 +8,7 @@
     justify-content: center;
     align-items: center;
     z-index: 10;
+    margin-bottom: 80px;
 }
 
 .containerMenu {
@@ -29,6 +30,11 @@
     color: black;
     font-size: 18px;
     text-decoration: none;
+    transition: color 0.3s;
+}
+
+.containerMenu a:hover {
+    color: #000000;
 }
 
 .dropdownMenu {
@@ -63,31 +69,3 @@
     height: auto;
 }
 
-
-
-
-@media (max-width: 400px) {
-    .hamburger {
-        display: flex;
-    }
-
-    .containerMenu {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 80px;
-        left: 0;
-        width: 100%;
-        background-color: beige;
-        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    }
-
-    .menuOpen {
-        display: flex;
-    }
-
-    .containerMenu li {
-        text-align: center;
-        padding: 15px 0;
-    }
-}
