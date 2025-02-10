@@ -10,11 +10,12 @@
     font-weight: bold;
     margin-bottom: 20px;
     color: #333;
+    font-family: "Poppins", sans-serif;
 }
 
 .table {
     width: 100%;
-    max-width: 1000px;
+    max-width: 1100px;
     margin: 0 auto;
     border-collapse: collapse;
     border-radius: 10px;
@@ -23,18 +24,21 @@
 
     background: #fff;
     cursor: pointer;
+    
 }
 
 .table th, 
 .table td {
     padding: 12px 15px;
     text-align: left;
+    font-family: "Poppins", sans-serif;
 }
 
 .table th {
     background-color: #78b5b8;
     color: white;
-    font-weight: bold;
+    font-weight: 600;
+    font-family: "Poppins", sans-serif;
 }
 
 .table tbody tr:nth-child(even) {
@@ -48,6 +52,7 @@
 
 .buttons{
     display: flex;
+    
     position: relative;
     background-color: #b6d2ec;
     color: #fff;
@@ -58,4 +63,5 @@
     border-radius: 4px;
     padding: 10px 20px;
     transition: background-color .3s;
+    font-family: "Poppins", sans-serif;
 }
