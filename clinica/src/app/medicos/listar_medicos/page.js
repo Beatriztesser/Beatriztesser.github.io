@@ -6,6 +6,7 @@ import { useState, useEffect } from "react";
 export default function ListasMedicos() {
     const [dados, setDados] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [busca,setBusca]=useState('')
 
     useEffect(() => {
         const getMedicos = async () => {
@@ -24,13 +25,16 @@ export default function ListasMedicos() {
         };
 
         getMedicos();
-    }, []); // Chama apenas uma vez ao carregar a página
+    }, []); 
 
     return (
         <div className={styles.container}>
             <div className={styles.containerLista}>
                 <h1 className={styles.title}>Lista de Médicos</h1>
-                <button className={styles.buttons}>Buscar Médico</button>
+                <input className={styles.input}
+                    value={busca}
+                    type="text"
+                    onChange={ev=>(setBusca(ev.target.value))}/>
                 <table className={styles.table}>
                     <thead>
                         <tr>
@@ -38,7 +42,7 @@ export default function ListasMedicos() {
                             <th>Nome</th>
                             <th>Telefone</th>
                             <th>Email</th>
-                            <th>Especialidade</th>
+                            <th>Especialidade</th> 
                         </tr>
                     </thead>
                     <tbody>
