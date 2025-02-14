@@ -1,9 +1,23 @@
 .container {
-    margin-top: 100px;
+
     padding: 20px;
     text-align: center;
+    overflow-x:auto;
 }
-
+.button{
+    font-family: "Poppins";
+    background-color: #78b5b8;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    
+    border-radius: 7px;
+    transition: background-color .3s;
+    font-size: 1rem;
+    justify-content: flex-start;
+}
 
 .title {
     font-size: 24px;

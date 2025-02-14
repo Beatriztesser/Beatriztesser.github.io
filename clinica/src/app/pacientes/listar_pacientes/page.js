@@ -31,11 +31,11 @@ export default function ListasMedicos() {
         <div className={styles.container}>
             <div className={styles.containerLista}>
                 <h1 className={styles.title}>Lista de Médicos</h1>
-                <button className={styles.button}> Buscar médico </button>
-                {/* <input className={styles.input}
+                <button className={styles.button}> Buscar paciente </button>
+                <input className={styles.input}
                     value={busca}
                     type="text"
-                    onChange={ev=>(setBusca(ev.target.value))}/> */}
+                    onChange={ev=>(setBusca(ev.target.value))}/>
                 <table className={styles.table}>
                     <thead>
                         <tr>
