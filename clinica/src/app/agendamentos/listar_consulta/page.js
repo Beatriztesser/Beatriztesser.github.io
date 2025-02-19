@@ -37,6 +37,7 @@ export default function ListasMedicos() {
                     value={busca}
                     type="text"
                     onChange={ev=>(setBusca(ev.target.value))}/> */}
+                    
                 <table className={styles.table}>
                     <thead>
                         <tr>

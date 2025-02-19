@@ -20,6 +20,7 @@ export default function Header () {
                         <li> <Link href='/filter'> Filter</Link></li>
                         <li> <Link href='/efeitos'> efeitos</Link></li>
                         <li> <Link href='/fetch.ex1'> efeitos coooooo</Link></li>
+                        <li> <Link href='/teste'>teste lista</Link></li>
 
                     </ul> 
                 </nav>

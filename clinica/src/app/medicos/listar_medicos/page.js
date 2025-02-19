@@ -6,7 +6,8 @@ import { useState, useEffect } from "react";
 export default function ListasMedicos() {
     const [dados, setDados] = useState([]);
     const [loading, setLoading] = useState(true);
-    const [busca,setBusca]=useState('')
+    const [busca, setBusca] = useState('');
+    const [modalAberto, setModalAberto] = useState(false);
 
     useEffect(() => {
         const getMedicos = async () => {
@@ -25,17 +26,28 @@ export default function ListasMedicos() {
         };
 
         getMedicos();
-    }, []); 
+    }, []);
+
+    const medicosFiltrados = dados.filter(medico =>
+        medico.nome.toLowerCase().includes(busca.toLowerCase())
+    );
+
+
+
+
+
+
+    const filtro= dados.filter(medico=> medico.nome.toLowerCase)
 
     return (
         <div className={styles.container}>
             <div className={styles.containerLista}>
                 <h1 className={styles.title}>Lista de Médicos</h1>
-                <button className={styles.button}> Buscar médico </button>
-                {/* <input className={styles.input}
-                    value={busca}
-                    type="text"
-                    onChange={ev=>(setBusca(ev.target.value))}/> */}
+                <button className={styles.button} onClick={() => setModalAberto(true)}>
+                    Buscar médico
+                </button>
+
+                {/* Tabela de médicos */}
                 <table className={styles.table}>
                     <thead>
                         <tr>
@@ -43,7 +55,7 @@ export default function ListasMedicos() {
                             <th>Nome</th>
                             <th>Telefone</th>
                             <th>Email</th>
-                            <th>Especialidade</th> 
+                            <th>Especialidade</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -64,7 +76,39 @@ export default function ListasMedicos() {
                         )}
                     </tbody>
                 </table>
+
+                {/* Modal de busca */}
+                {modalAberto && (
+                    <div className={styles.modalOverlay}>
+                        <div className={styles.modal}>
+                            <input
+                                type="text"
+                                className={styles.modalInput}
+                                placeholder="Buscar médico por nome..."
+                                value={busca}
+                                onChange={(e) => setBusca(e.target.value)}
+                            />
+                            <button className={styles.closeButton} onClick={() => setModalAberto(false)}>X</button>
+                            <ul className={styles.medicoList}>
+                                {medicosFiltrados.map((medico) => (
+                                    <li key={medico.id}>{medico.nome}</li>
+                                ))}
+                            </ul>
+                        </div>
+                    </div>
+                )}
             </div>
         </div>
     );
 }
+
+
+
+
+
+
+
+
+
+
+
