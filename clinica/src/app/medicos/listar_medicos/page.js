@@ -33,12 +33,6 @@ export default function ListasMedicos() {
     );
 
 
-
-
-
-
-    const filtro= dados.filter(medico=> medico.nome.toLowerCase)
-
     return (
         <div className={styles.container}>
             <div className={styles.containerLista}>
@@ -84,7 +78,7 @@ export default function ListasMedicos() {
                             <input
                                 type="text"
                                 className={styles.modalInput}
-                                placeholder="Buscar médico por nome..."
+                                placeholder="Digite o nome do médico"
                                 value={busca}
                                 onChange={(e) => setBusca(e.target.value)}
                             />

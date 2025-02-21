@@ -29,6 +29,8 @@ const[name, setName]=useState('')
                         <p>Nome: {name}</p>
                         <input type="text" onChange={controlarInput} />
                     </div>
+
+                    
                 )
             }
             

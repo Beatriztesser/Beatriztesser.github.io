@@ -13,12 +13,13 @@ export default function Header() {
 
     return (
         <header className={styles.header}>
+            <div className={styles.divLogo}>
+                        <Image src="/logo.semfundo.png" alt="Logo" className="logo" width="130" height="60" />
+                    </div>
             <nav className={styles.menuBar}>
-                <ul className={`${styles.containerMenu} ${menuOpen ? styles.menuOpen : ''}`}>
-                    <li>
-                        <Image src="/logo.png" alt="Logo" className="logo" width="150" height="150" />
-                    </li>
 
+                <ul className={`${styles.containerMenu} ${menuOpen ? styles.menuOpen : ''}`}>
+                    
                     <li><Link href="/">Home</Link></li>
                     <li 
                         className={styles.dropdown} 
@@ -40,12 +41,13 @@ export default function Header() {
                         onMouseEnter={() => setSubmenuAgendamentoOpen(true)} 
                         onMouseLeave={() => setSubmenuAgendamentoOpen(false)}
                     >
-                        <a href="#">Agendamento</a>
+                        <a href="#">Pacientes</a>
                         {submenuAgendamentoOpen && (
                             <ul className={styles.dropdownMenu}>
-                                <li><Link href="/agendamentos/listar_consulta">Listar consultas</Link></li>
+                                <li><Link href= "/pacientes/listar_pacientes">Listar consultas</Link></li>
                                 <li><Link href="#">Agendar consultas</Link></li>
                                 <li><Link href="#">Editar consultas</Link></li>
+                                <li><Link href= "teste">tesdfvgxfgte</Link></li>
                             </ul>
                         )}
                     </li>
@@ -54,10 +56,10 @@ export default function Header() {
                         onMouseEnter={() => setSubmenuPacienteOpen(true)} 
                         onMouseLeave={() => setSubmenuPacienteOpen(false)}
                     >
-                        <a href="#">Pacientes</a>
+                        <a href="#">Agendamento</a>
                         {submenuPacienteOpen && (
                             <ul className={styles.dropdownMenu}>
-                                <li><Link href="/pacientes/listar_pacientes">Listar consultas</Link></li>
+                                <li><Link href="/agendamentos/listar_consulta"> Listar consultas</Link></li>
                                 <li><Link href="#">Listar</Link></li>
                                 <li><Link href="#">Editar consultas</Link></li>
                             </ul>
@@ -70,3 +72,4 @@ export default function Header() {
         </header>
     );
 }
+

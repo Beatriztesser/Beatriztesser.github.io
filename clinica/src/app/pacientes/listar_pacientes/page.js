@@ -7,11 +7,12 @@ export default function ListasMedicos() {
     const [dados, setDados] = useState([]);
     const [loading, setLoading] = useState(true);
     const [busca,setBusca]=useState('')
+    const[ modalAberto, setModalAberto]=useState(false)
 
     useEffect(() => {
         const getMedicos = async () => {
             try {
-                const response = await fetch('https://api-clinica-2a.onrender.com/medicos');
+                const response = await fetch('https://api-clinica-2a.onrender.com/pacientes');
                 if (!response.ok) {
                     throw new Error('Erro ao buscar dados: ' + response.statusText);
                 }
@@ -27,15 +28,23 @@ export default function ListasMedicos() {
         getMedicos();
     }, []); 
 
+    const pacienteFiltrado = dados.filter(paciente =>
+        paciente.nome.toLowerCase().includes(busca.toLowerCase())
+    );
+
+
+    const medicofiltrado= dados.filter(medico=>
+    medico.nome.toLowerCase().includes(busca.to)
+    )
+    
+
     return (
         <div className={styles.container}>
             <div className={styles.containerLista}>
-                <h1 className={styles.title}>Lista de Médicos</h1>
-                <button className={styles.button}> Buscar paciente </button>
-                <input className={styles.input}
-                    value={busca}
-                    type="text"
-                    onChange={ev=>(setBusca(ev.target.value))}/>
+                <h1 className={styles.title}>Lista de Pacientes</h1>
+                <button className={styles.button} onClick={()=>setModalAberto(true)}> 
+                    Buscar paciente 
+                </button>
                 <table className={styles.table}>
                     <thead>
                         <tr>
@@ -43,7 +52,7 @@ export default function ListasMedicos() {
                             <th>Nome</th>
                             <th>Telefone</th>
                             <th>Email</th>
-                            <th>Especialidade</th> 
+                            <th>CPF</th> 
                         </tr>
                     </thead>
                     <tbody>
@@ -52,18 +61,42 @@ export default function ListasMedicos() {
                                 <td colSpan="5" className={styles.loading}>Carregando...</td>
                             </tr>
                         ) : (
-                            dados.map((medico) => (
-                                <tr key={medico.id}>
-                                    <td>{medico.id}</td>
-                                    <td>{medico.nome}</td>
-                                    <td>{medico.telefone}</td>
-                                    <td>{medico.email}</td>
-                                    <td>{medico.especialidade}</td>
+                            dados.map((paciente) => (
+                                <tr key={paciente.id}>
+                                    <td>{paciente.id}</td>
+                                    <td>{paciente.nome}</td>
+                                    <td>{paciente.telefone}</td>
+                                    <td>{paciente.email}</td>
+                                    <td>{paciente.cpf}</td>
                                 </tr>
                             ))
                         )}
                     </tbody>
                 </table>
+
+                {modalAberto && (
+                    <div className={styles.modalOverlay}>
+                        <div className={styles.modal}>
+                            <input
+                                type="text"
+                                className={styles.modalInput}
+                                placeholder="Digite o nome do paciente"
+                                value={busca}
+                                onChange={(e) => setBusca(e.target.value)}
+                            />
+                            <button className={styles.closeButton} onClick={() => setModalAberto(false)}>X</button>
+                            <ul className={styles.pacientesList}>
+                                {pacienteFiltrado.map((paciente) => (
+                                    <li key={paciente.id}>{paciente.nome}</li>
+                                ))}
+                            </ul>
+                        </div>
+                    </div>
+                )}
+
+                
+
+
             </div>
         </div>
     );
