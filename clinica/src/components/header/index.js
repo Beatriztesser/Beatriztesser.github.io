@@ -47,7 +47,7 @@ export default function Header() {
                                 <li><Link href= "/pacientes/listar_pacientes">Listar consultas</Link></li>
                                 <li><Link href="#">Agendar consultas</Link></li>
                                 <li><Link href="#">Editar consultas</Link></li>
-                                <li><Link href= "teste">tesdfvgxfgte</Link></li>
+                                
                             </ul>
                         )}
                     </li>
